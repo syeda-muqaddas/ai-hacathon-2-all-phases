@@ -212,6 +212,9 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 ## Active Technologies
 - Python 3.13+ + None (Python standard library only) (001-todo-cli)
 - In-memory (Python list/dictionary) (001-todo-cli)
+- Python 3.13+ + datetime (Python standard library) (002-todo-cli-enhanced-ux)
+- In-memory (Python list/dictionary) (002-todo-cli-enhanced-ux)
 
 ## Recent Changes
 - 001-todo-cli: Added Python 3.13+ + None (Python standard library only)
+- 002-todo-cli-enhanced-ux: Added enhanced UI/UX with ASCII art, table display, statistics

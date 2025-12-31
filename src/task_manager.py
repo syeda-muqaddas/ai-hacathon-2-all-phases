@@ -16,12 +16,24 @@ class TaskManager:
         self.tasks: list[Task] = []
         self.next_id: int = 1
 
-    def add_task(self, title: str, description: str = "") -> Task | None:
-        """Create a new task with auto-assigned ID.
+    def add_task(
+        self,
+        title: str,
+        description: str = "",
+        priority: str = "None",
+        due_date: str = "",
+        category: str = "",
+        tags: list[str] | None = None
+    ) -> Task | None:
+        """Create a new task with auto-assigned ID and extended attributes.
 
         Args:
             title: Task name (required, must be non-empty after strip)
             description: Additional details (optional)
+            priority: Importance level - "High", "Medium", "Low", "None" (default: "None")
+            due_date: Target date as YYYY-MM-DD string (optional)
+            category: Grouping category (optional)
+            tags: List of labels (optional)
 
         Returns:
             The newly created Task, or None if title is invalid
@@ -35,7 +47,11 @@ class TaskManager:
             task_id=self.next_id,
             title=title.strip(),
             description=description.strip() if description else "",
-            is_complete=False
+            is_complete=False,
+            priority=priority,
+            due_date=due_date.strip() if due_date else "",
+            category=category.strip() if category else "",
+            tags=tags if tags is not None else []
         )
 
         # Add to list and increment counter
@@ -66,13 +82,26 @@ class TaskManager:
                 return task
         return None
 
-    def update_task(self, task_id: int, title: str | None = None, description: str | None = None) -> bool:
-        """Update a task's title and/or description.
+    def update_task(
+        self,
+        task_id: int,
+        title: str | None = None,
+        description: str | None = None,
+        priority: str | None = None,
+        due_date: str | None = None,
+        category: str | None = None,
+        tags: list[str] | None = None
+    ) -> bool:
+        """Update a task's attributes.
 
         Args:
             task_id: The ID of the task to update
-            title: New title (None or empty string to keep current)
+            title: New title (None to keep current, empty string rejected)
             description: New description (None to keep current, empty string to clear)
+            priority: New priority (None to keep current)
+            due_date: New due date (None to keep current, empty string to clear)
+            category: New category (None to keep current, empty string to clear)
+            tags: New tags list (None to keep current)
 
         Returns:
             True if task was updated, False if task not found or invalid title
@@ -91,6 +120,22 @@ class TaskManager:
         # Update description if provided (can be empty to clear)
         if description is not None:
             task.description = description.strip()
+
+        # Update priority if provided
+        if priority is not None:
+            task.priority = priority
+
+        # Update due_date if provided (can be empty to clear)
+        if due_date is not None:
+            task.due_date = due_date.strip()
+
+        # Update category if provided (can be empty to clear)
+        if category is not None:
+            task.category = category.strip()
+
+        # Update tags if provided
+        if tags is not None:
+            task.tags = tags
 
         return True
 
