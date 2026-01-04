@@ -41,6 +41,7 @@ uv run python -m src.main
 When you start the application, you'll see a menu:
 
 ```
+001 version not available
 === To-Do Application ===
 1. Add Task
 2. View Tasks
@@ -50,6 +51,52 @@ When you start the application, you'll see a menu:
 6. Exit
 
 Enter your choice (1-6):
+
+### 002 version you see this now available
+
+
+                       ████████╗ ██████╗ ██████╗  ██████╗
+                      ╚══██╔══╝██╔═══██╗██╔══██╗██╔═══██╗
+                         ██║   ██║   ██║██║  ██║██║   ██║
+                         ██║   ██║   ██║██║  ██║██║   ██║
+                         ██║   ╚██████╔╝██████╔╝╚██████╔╝
+                          ╚═╝    ╚═════╝ ╚═════╝  ╚═════╝
+
+                   Todo CLI v2.0 - Your Productivity Partner
+
+
+════════════════════════════════════════════════════════════════════════════════
+                                   MAIN MENU
+════════════════════════════════════════════════════════════════════════════════
+
+  [ Task Operations ]
+  ─────────────────────────────────────
+  1. Add Task
+  2. View Tasks
+
+  [ Task Management ]
+  ─────────────────────────────────────
+  3. Update Task
+  4. Delete Task
+  5. Mark Complete/Incomplete
+
+  [ Insights ]
+  ─────────────────────────────────────
+  6. Statistics
+
+  ─────────────────────────────────────
+  7. Exit
+
+> Enter your choice (1-7): 7
+
+  ─────────────────────────────────────
+
+  Thank you for using Todo CLI v2.0!
+  Stay productive!
+
+  ─────────────────────────────────────
+
+
 ```
 
 ### Adding a Task
